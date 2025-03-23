@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+.main{
+    width: 100%;
+  background: rgb(14, 13, 13);
+  padding-top: 10px;
+  height:auto ;
+
+}
+.container{
+    
+    width: 80%;
+    margin: 20px auto 0 auto; 
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+}
+
+.canva {
+  width: 0;
+  height: 0;
+  border-right: 300px solid transparent;  
+  border-bottom: 180px solid transparent;  
+  border-top: 180px solid rgb(167, 25, 25) ; 
+  display: none;
+  transition: all 1s ease-in-out;
+ 
+}
+#logo{
+ position: absolute;
+ left: 0;
+ width: 150px;
+ height: 250px;
+ bottom: 0;
+ color: rgb(255, 255, 255);
+ left: -100%;
+ transition: left 2s ease-in-out;
+}
+#text{
+ position: absolute;
+ left: 0;
+ padding: 12px;
+ top: 0;
+ line-height: 30px;
+ color: rgb(252, 252, 252);
+ left: -100%;
+ transition: left 2s ease-in-out;
+}
+.link{
+    width: 100px;
+    height: 200px;
+    
+    align-content: center;
+position: absolute;
+right: 0;
+bottom: 70px;
+}
+.link>button{
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+ display: block;
+ text-decoration: none;
+ color: rgb(255, 255, 255);
+ padding: 3px;
+ outline: none;
+ border: none;
+ box-shadow: 0px 1px 10px black;
+ background-color: brown;
+ border-radius: 5px;
+ transform: translateX(80%);
+ transition: transform 2s ease-in-out; 
+}
+
+.seccontainer{
+    width: 80%;
+    margin: 20px auto 0 auto; 
+    height: 250px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+#show{
+    height: 220px;
+    width: 100%;
+}
+#left{
+position: absolute;
+left: 10px;
+border: 1px solid;
+padding: 2px;
+background: rgb(0, 0, 0);
+border-radius: 50%;
+color: red;
+font-size: 20px;
+}
+#right{
+    position: absolute; 
+    right: 10px;
+   font-size: 20px;
+border: 1px solid;
+padding: 2px;
+color: red;
+background: rgb(0, 0, 0);
+border-radius: 50%;
+}
+.maintext{
+    position: absolute;
+    right:10px ;
+    
+    bottom: 10px;
+    color: rgba(255, 255, 255, 0.822);
+    font-weight: 200;
+ 
+}
+
+#navbar{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+    display: none;
+}
+#Exit{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 35px;
+    color: white;
+    display: none;
+}
+.div{
+    width: 300px;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    gap: 10px;
+    flex-direction: column;  
+    align-content: center;
+    display: none;
+    border: 1px solid;
+    background-color: rgba(0, 0, 0, 0.322);
+}
+.div>button{
+    width: 25%;
+    margin-top: 10px;
+    text-align: center;
+ display: block;
+ text-decoration: none;
+ color: rgb(255, 255, 255);
+ padding: 3px;
+ outline: none;
+ border: none;
+ box-shadow: 0px 1px 10px black;
+ background-color: brown;
+ border-radius: 5px;
+}
+
+.cartoon{   
+    width: 70%;
+    margin: auto;
+    padding: 20px;
+    height: auto;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.box{
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    border: 1px solid;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.box::after{
+    content: 'check it';
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    color: white;
+   text-align: center;
+   align-content: center;
+   text-shadow: 0px 1px 10px black;
+    position: absolute;
+    z-index: -1;
+    background: rgba(255, 0, 0, 0.158);
+    left: 0;
+    transform: translateX(100%);    
+}
+.box:hover::after{
+    transform: translateX(0%);
+   transition: transform 1s ;
+}
+
+
+
+.box1{
+    background: url(imges/ada0a9cabef277384affa12287070f97.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.box2{
+    background: url(imges/ada0a9cabef277384affa12287070f97.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.box3{
+    background: url(imges/ada0a9cabef277384affa12287070f97.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.box4{
+    background: url(imges/ada0a9cabef277384affa12287070f97.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.box5{
+    background: url(imges/ada0a9cabef277384affa12287070f97.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.box6{
+    background: url(imges/ada0a9cabef277384affa12287070f97.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.box7{
+    background: url(imges/ada0a9cabef277384affa12287070f97.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.box8{
+    background: url(imges/ada0a9cabef277384affa12287070f97.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:800px) {
+    .container{
+    
+    width: 80%;
+    margin: 20px auto 0 auto; /* Add top margin */
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+}
+
+.canva {
+  width: 0;
+  height: 0;
+  border-right: 650px solid transparent;  
+  border-bottom: 750px solid transparent;  
+  border-top: 750px solid rgb(167, 25, 25) ; 
+  display: none;
+  transition: all 1s ease-in-out;
+ 
+}
+#logo{
+ position: absolute;
+ left: 0;
+ width: 400px;
+ height: 500px;
+ bottom: 0;
+ color: rgb(255, 255, 255);
+ left: -100%;
+ transition: left 2s ease-in-out;
+}
+#text{
+ position: absolute;
+ left: 0;
+ padding: 12px;
+ top: 0;
+ font-size: 35px;
+ line-height: 50px;
+ color: rgb(252, 252, 252);
+ left: -100%;
+ transition: left 2s ease-in-out;
+}
+.link{
+    width: 100px;
+    height: 200px;
+    display: none;
+    align-content: center;
+position: absolute;
+right: 0;
+bottom: 70px;
+}
+.link>button{
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+ display: block;
+ text-decoration: none;
+ color: rgb(255, 255, 255);
+ padding: 3px;
+ outline: none;
+ display: none;
+ border: none;
+ box-shadow: 0px 1px 10px black;
+ background-color: brown;
+ border-radius: 5px;
+ transform: translateX(80%);
+ transition: transform 2s ease-in-out; 
+}
+
+.seccontainer{
+    width: 80%;
+    margin: 20px auto 0 auto; 
+    height: 450px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+#show{
+    height: 100%;
+    width: 80%;
+}
+#left{
+
+left: 10px;
+border: 1px solid;
+padding: 5px;
+color: red;
+background: rgb(0, 0, 0);
+border-radius: 50%;
+font-size: 40px;
+}
+#right{
+ 
+    right: 10px;
+   font-size: 40px;
+border: 1px solid;
+padding: 5px;
+color: red;
+background: rgb(0, 0, 0);
+border-radius: 50%;
+}
+.maintext{
+    position: absolute;
+    right:20px ;
+    display: block;
+    bottom: 20px;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.822);
+    font-weight: 200;
+ 
+} 
+#navbar{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 35px;
+    color: white;
+   display: block;
+}
+#Exit{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    z-index: 3;
+    font-size: 35px;
+    color: white;
+  
+}
+.div{
+    display: block;
+    width: 100%;
+    height: 80vh;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    gap: 10px;
+    flex-direction: column;  
+    align-content: center;   
+    border: 1px solid;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.808);
+    transition: right 2s ease;
+}
+}
+@media screen and (min-width: 1050px) {
+
+    .canva {
+  width: 0;
+  height: 0;
+  border-right: 950px solid transparent;  
+  border-bottom: 700px solid transparent;  
+  border-top: 700px solid rgb(167, 25, 25) ; 
+  display: none;
+  transition: all 1s ease-in-out;
+ 
+}
+
+    .maintext {
+        position: absolute;
+        right: 60px;
+        display: block;
+        bottom: 60px;
+        font-size: 45px;
+        color: rgba(255, 255, 255, 0.822);
+        font-weight: lighter;
+    }
+
+    .seccontainer{
+    width: 60%;
+    margin: 20px auto 0 auto; 
+    height: 550px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+#show{
+    height: 100%;
+    width: 80%;
+}
+}
+
+
+
+
+</style>
+<body>
+    <div class="main">
+      <div class="container">
+       
+        <div id="canva" class="canva">
+           <h3 id="text">animated website for all <br>entertainment 
+            <br>check it
+        </h3>
+        </div>
+        <div id="maintext" class="maintext">
+            <h3>let start check the <br> best animation </h3>
+          </div>
+          <i id="navbar" class="fa-solid fa-bars"></i>
+         
+
+          <div id="div" class="div">
+             <i id="Exit" class="fa-solid fa-bars-staggered"></i>
+            <button >HOME</button>
+            <button >ABOUT</button>
+            <button >lEARN</button>
+            <button >MORE</button> 
+          </div>
+
+
+        <img id="logo" src="imges/Adobe Express - file.png" alt="">
+        <div class="link">
+       <button id="bun1">HOME</button>
+       <button id="bun2">ABOUT</button>
+       <button id="bun3">lEARN</button>
+       <button id="bun4">MORE</button> 
+       
+       
+
+       </div>
+
+      </div>
+     
+
+      <div style="margin-top: 40px;" class="seccontainer">
+
+        <i id="left"  class="fa-solid fa-angle-up fa-rotate-270"></i>
+          
+        <img id="show" src="" alt="Image Slider" />
+
+        <i id="right" class="fa-solid fa-angle-up fa-rotate-90"></i>
+
+        
+      </div>
+
+
+
+      <h1 style="text-align: center;margin-bottom: 20px; margin-top: 25px; color: white;">collection Anime</h1>
+
+
+        <div class="cartoon">
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+            <div class="box box4"></div>
+            <div class="box box5"></div>
+            <div class="box box6"></div>
+            <div class="box box7"></div>
+            <div class="box box8"></div>
+       
+        </div>
+
+
+
+
+
+       
+
+
+
+
+    </div>
+    <script>
+
+    
+       const navbar = document.getElementById("navbar");
+       const Exit = document.getElementById("Exit");
+       const div = document.getElementById('div');
+       document.getElementById("navbar").addEventListener("click" , function(){
+        div.style.right = '0' 
+        Exit.style.display = 'block  '
+        })
+        document.getElementById("Exit").addEventListener("click" , function(){
+        div.style.right = '-100%' 
+        
+        })
+
+
+        const canva = document.getElementById('canva');
+        const logo = document.getElementById('logo');
+        const text = document.getElementById('text');
+        const bun1 = document.getElementById('bun1');
+        const bun2 = document.getElementById('bun2');
+        const bun3 = document.getElementById('bun3');
+        const bun4 = document.getElementById('bun4');
+        setInterval(() => {
+             canva.style.display = 'block';
+            
+        }, 500);
+        setInterval(() => {
+            text.style.left = '0%';
+            
+        }, 700);
+        setInterval(() => {
+            logo.style.left = '0%';
+            
+        }, 900);
+        setInterval(() => {
+            bun1.style.transform = 'translateX(-10%)';
+            bun2.style.transform = 'translateX(-10%)';
+            bun3.style.transform = 'translateX(-10%)';
+            bun4.style.transform = 'translateX(-10%)';           
+        }, 1000);
+
+
+
+        const img =[
+            "https://assets3.thrillist.com/v1/image/2855064/1584x892/scale;webp=auto;jpeg_quality=60;progressive.jpg",
+            "https://www.digitaltrends.com/wp-content/uploads/2025/02/Solo-Leveling-Season-2.jpg?resize=1200%2C720&p=1",
+            "https://static1.colliderimages.com/wordpress/wp-content/uploads/2024/09/uzui-save-tanjiro-sword-mouth.jpg?q=70&fit=crop&w=825&dpr=1",
+         
+        ]
+
+        let currentimg = 0
+        let showimgAuto;
+        showimgAuto = img[currentimg];
+        currentimg = [(currentimg + 1) % img.length];
+        document.getElementById('show').src = showimgAuto;
+        setInterval(() => {
+            showimgAuto = img[currentimg];
+            currentimg = [(currentimg + 1) % img.length];
+            document.getElementById('show').src = showimgAuto;
+        }, 3000);
+ 
+        document.getElementById('left').addEventListener("click" , function(){
+            showimgAuto = img[currentimg];
+            currentimg = [(currentimg - 1 + img.length) % img.length];
+            document.getElementById('show').src = showimgAuto;
+        })
+        document.getElementById('right').addEventListener("click" , function(){
+            showimgAuto = img[currentimg];
+            currentimg = [(currentimg + 1 ) % img.length];
+            document.getElementById('show').src = showimgAuto;
+        })
+
+
+
+
+
+
+    </script>
+</body>
+</html>

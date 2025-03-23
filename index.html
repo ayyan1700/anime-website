@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+    .main {
+        width: 100%;
+        background: rgb(14, 13, 13);
+        padding-top: 10px;
+        height: 100vh;
+        align-content: center;
+    }
+
+    .container {
+        width: 200px;
+        height: 190px;
+        margin: auto;
+        background-color: rgba(128, 128, 128, 0.356);
+        padding: 40px;
+        border-radius: 20px;
+    }
+
+    .container > button {
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+        border: none;
+        outline: none;
+        color: red;
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    .canva {
+        width: 0;
+        height: 0;
+        border-right: 70px solid transparent;
+        border-bottom: 58px solid transparent;
+        border-top: 58px solid rgb(167, 25, 25);
+        transition: all 1s ease-in-out;
+        margin-top: -40px;
+        margin-left: -40px;
+        margin-bottom: -50px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    input {
+        margin-bottom: 10px;
+        padding: 5px;
+        border-radius: 6px;
+        outline: none;
+        border: 1px solid red;
+        color: red;
+        width: 93%;
+    }
+</style>
+<body>
+    <div class="main">
+        <h1>Login Account</h1>
+        <div class="container">
+            <div class="canva"></div>
+            <label for="emails">Email:</label><br>
+            <input id="emails" type="email" placeholder="Enter your email"><br>
+            <label for="passwords">Password:</label><br>
+            <input id="passwords" type="password" placeholder="Enter your password"><br>
+            <button id="create">Create an Account?</button>
+            <button id="submit">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        let loginAccount = [];
+
+        document.getElementById('submit').addEventListener("click", function() {
+            var emails = document.getElementById('emails').value.trim();
+            var passwords = document.getElementById('passwords').value.trim();
+
+            
+            if (!emails || !passwords) {
+                alert("Please fill in all input fields!");
+                return;
+            }
+
+      
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            if (!emailPattern.test(emails)) {
+                alert("Please enter a valid Gmail address.");
+                return;
+            }
+
+            const existingAccount = JSON.parse(localStorage.getItem('loginAccount')) || [];
+
+           
+            const accountFound = existingAccount.some(account => account.emails === emails && account.passwords === passwords);
+
+            if (accountFound) {
+              
+                alert("Successfully logged in!");
+                window.location.href = "index2.html";
+            } else {
+                
+                alert("Account not found. Please create an account.");
+            }
+        });
+
+        document.getElementById('create').addEventListener('click', function() {
+         
+            window.location.href = "index1.html";
+        });
+    </script>
+</body>
+</html>
